@@ -53,3 +53,15 @@ print(posthoc_summary_yield)
 
 print(aov_table_weight)
 print(posthoc_summary_weight)
+
+
+
+# Export ANOVA table and DMRT summary for Yield to CSV
+aov_table_yield.to_csv('aov_table_yield.csv')
+with open('posthoc_summary_yield.csv', 'w') as f:
+    f.write(posthoc_summary_yield.as_csv())
+
+# Export ANOVA table and DMRT summary for Weight to CSV
+aov_table_weight.to_csv('aov_table_weight.csv')
+with open('posthoc_summary_weight.csv', 'w') as f:
+    f.write(posthoc_summary_weight.as_csv())
