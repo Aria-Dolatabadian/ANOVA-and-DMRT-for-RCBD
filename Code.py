@@ -6,7 +6,7 @@ import statsmodels.formula.api as smf
 import matplotlib.pyplot as plt
 
 # Generate random data
-data = {'Treatment': ['A', 'B', 'C'] * 3,
+data = {'Treatment': ['100 kg', '200 kg', '300 kg'] * 3,
         'Replicate': [1, 2, 3] * 3,
         'Yield': [50, 55, 53, 45, 50, 48, 65, 62, 66],
         'Weight': [2.1, 2.3, 2.4, 1.8, 1.9, 2.0, 2.8, 2.9, 2.6]}
@@ -25,7 +25,7 @@ posthoc_summary_yield = posthoc_yield.summary()
 means_yield = df.groupby(['Treatment']).mean()
 stds_yield = df.groupby(['Treatment']).std()
 means_yield.plot(kind='bar', y='Yield', yerr=stds_yield, capsize=4)
-plt.xticks(rotation=90)
+plt.xticks(rotation=360)
 plt.legend(title='Treatment', loc='center left', bbox_to_anchor=(1.0, 0.5))
 plt.ylabel('Yield (kg/ha)')
 plt.show()
@@ -43,7 +43,7 @@ posthoc_summary_weight = posthoc_weight.summary()
 means_weight = df.groupby(['Treatment']).mean()
 stds_weight = df.groupby(['Treatment']).std()
 means_weight.plot(kind='bar', y='Weight', yerr=stds_weight, capsize=4)
-plt.xticks(rotation=90)
+plt.xticks(rotation=360)
 plt.legend(title='Treatment', loc='center left', bbox_to_anchor=(1.0, 0.5))
 plt.ylabel('Weight (kg)')
 plt.show()
